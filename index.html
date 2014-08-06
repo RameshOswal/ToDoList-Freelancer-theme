@@ -42,7 +42,10 @@
 				$scope.myTask = [];
 				//$scope.myTask.push({x : "item1"});
 				$scope.addTask = function (){	
-					$scope.myTask.push({x : $scope.myData.myText});
+					
+					
+					
+						$scope.myTask.push({x : $scope.myData.myText});
 					$scope.myData.myText = "";
 				};
 			}
@@ -120,6 +123,15 @@
                     </div>
                 </div>
             </div> -->
+			<span> <a href="#" class="btn-social btn-outline" ><img src="img/"></img></a></span>
+			<div class="col-lg-12 text-center">
+					
+					<div class="row"> 
+						
+						<h2>TO DO LIST</h2>
+						<hr class="star-primary">
+					</div>
+				</div>
 			<form name="sentMessage" id="contactForm" novalidate >
 				<div ng-app="myapp">
 					<div ng-controller="mycontroller">
@@ -140,10 +152,10 @@
 								</div>
 								
 								
-								<h2 ng-bind="myData.myText"> {{myData.myText}}</h2>
+								<h2 class="floating-label-form-group" ng-bind="myData.myText"> {{myData.myText}}</h2>
 							
 							<div class="col-lg-12 text-center">	
-								<h2 ng-repeat="task in myTask" ng-bind="task.x"></h2>
+								<h2 ng-repeat="task in myTask" > <div class="floating-label-form-group">{{task.x}}  </div> </h2>
 								
 							</div>
 					
