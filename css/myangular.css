@@ -1,0 +1,32 @@
+<script>
+		angular.module("myapp",[])
+			.controller("mycontroller",function($scope){
+				
+				$scope.myData = {}; 
+				$scope.myData.myText = "" ;
+				$scope.myTask = [];
+				//$scope.myTask.push({x : "item1"});
+				$scope.addTask = function (){	
+					$scope.myTask.push({x : $scope.myData.myText});
+					$scope.myData.myText = "";
+				};
+			}
+			);
+		/*	.controller("AlertDemoCtrl",function($scope) {
+			  $scope.alerts = [
+				{ type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+				{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+			  ];
+
+			  $scope.addAlert = function() {
+				$scope.alerts.push({msg: 'Another alert!'});
+			  };
+
+			  $scope.closeAlert = function(index) {
+				$scope.alerts.splice(index, 1);
+			  };
+
+			});*/
+			
+
+	

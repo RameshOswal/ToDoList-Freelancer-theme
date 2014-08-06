@@ -28,7 +28,45 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	
+	<script src="angular.min.js" > </script>
+		<script src="ui-bootstrap-tpls-0.11.0.min.js"></script>
+	
+	<script>
+		angular.module("myapp",[])
+			.controller("mycontroller",function($scope){
+				
+				$scope.myData = {}; 
+				$scope.myData.myText = "" ;
+				$scope.myTask = [];
+				//$scope.myTask.push({x : "item1"});
+				$scope.addTask = function (){	
+					$scope.myTask.push({x : $scope.myData.myText});
+					$scope.myData.myText = "";
+				};
+			}
+			);
+		/*	.controller("AlertDemoCtrl",function($scope) {
+			  $scope.alerts = [
+				{ type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+				{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+			  ];
 
+			  $scope.addAlert = function() {
+				$scope.alerts.push({msg: 'Another alert!'});
+			  };
+
+			  $scope.closeAlert = function(index) {
+				$scope.alerts.splice(index, 1);
+			  };
+
+			});*/
+			
+
+	</script>
+	
+	
 </head>
 
 <body id="page-top" class="index">
@@ -82,23 +120,40 @@
                     </div>
                 </div>
             </div> -->
-			<form name="sentMessage" id="contactForm" novalidate>
-				<div class="row control-group">
-								<div class="form-group col-xs-12 floating-label-form-group controls">
-									<label>Name</label>
-									<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-									<p class="help-block text-danger"></p>
+			<form name="sentMessage" id="contactForm" novalidate >
+				<div ng-app="myapp">
+					<div ng-controller="mycontroller">
+									<div class="row control-group">
+													<div class="form-group col-xs-12 floating-label-form-group controls">
+														<label>Name</label>
+														<input type="text" ng-model="myData.myText" class="form-control" placeholder="Write a Task" id="name" required data-validation-required-message="Please enter your name.">
+														<p class="help-block text-danger"></p>
+													</div>
+									</div>
+												
+								<div id="success">  
 								</div>
-							</div>
-							
-			<div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-danger btn-lg">Send</button>
-                            </div>
-                        </div>
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<button type="button"  ng-click="addTask()" class="btn btn-danger btn-lg">ADD TASK</button>
+									</div>
+								</div>
+								<span ng-bind="myData.myText"> {{myData.myText}}</span>
+								<div ng-repeat="task in myTask" ng-bind="task.x"> </div>
+					</div>	
+				</div>
+			
+			
+		</div>
+		
+	</div>
+						
+						
+						
+						
+						
 			</div>			
-        </div>
+       
     </header>
 
     <!-- Portfolio Grid Section -->
