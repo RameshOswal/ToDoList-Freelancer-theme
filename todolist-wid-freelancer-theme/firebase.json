@@ -1,0 +1,9 @@
+{
+  "firebase": "mytodolistramesh",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
